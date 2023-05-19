@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+
+
+
+<div class="container">
+
+<br>
+    <article class="card">
+        <header class="card-header"> My Orders / Tracking </header>
+        <div class="card-body">
+    <h6>Order ID: {{order.order_number}}</h6>
+    <article class="card">
+        <div class="card-body row no-gutters">
+            <div class="col">
+                <strong>Delivery Estimate time:</strong> <br>2 to 3 days from the day product was purchased
+            </div>
+            <div class="col">
+                <strong>Shipping company:</strong> <br> Express Delivery | <i class="fa fa-phone"></i> +86 15467312234
+            </div>
+            <div class="col">
+                <strong>Status:</strong> <br> {{order.status}}
+            </div>
+        </div>
+    </article>
+
+
+            <div class="tracking-wrap">
+                {%if order.status == 'Pending' %}
+                <div class="step active"> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-spinner"></i> </span> <span class="text">Order Pending</span> </div>
+                <div class="step "> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-check"></i> </span> <span class="text"> Order Confirmed</span> </div>
+                <div class="step "> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-user"></i> </span> <span class="text">Picked by courier</span> </div>
+                <div class="step "> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-truck"></i> </span> <span class="text"> On the way </span> </div>
+                <div class="step "> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-home"></i> </span> <span class="text">Delivered</span> </div>
+                {%elif order.status == 'Order Confirmed' %}
+                <div class="step active"> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-spinner"></i> </span> <span class="text">Order Pending</span> </div>
+                <div class="step active"> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-check"></i> </span> <span class="text"> Order Confirmed</span> </div>
+                <div class="step "> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-user"></i> </span> <span class="text">Picked by courier</span> </div>
+                <div class="step "> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-truck"></i> </span> <span class="text"> On the way </span> </div>
+                <div class="step "> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-home"></i> </span> <span class="text">Delivered</span> </div>
+                {%elif order.status == 'Picked by courier' %}
+                <div class="step active"> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-spinner"></i> </span> <span class="text">Order Pending</span> </div>
+                <div class="step active"> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-check"></i> </span> <span class="text"> Order Confirmed</span> </div>
+                <div class="step active"> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-user"></i> </span> <span class="text">Picked by courier</span> </div>
+                <div class="step "> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-truck"></i> </span> <span class="text"> On the way </span> </div>
+                <div class="step "> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-home"></i> </span> <span class="text">Delivered</span> </div>
+                {%elif order.status == 'Out for Delivery'%}
+                <div class="step active"> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-spinner"></i> </span> <span class="text">Order Pending</span> </div>
+                <div class="step active"> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-check"></i> </span> <span class="text"> Order Confirmed</span> </div>
+                <div class="step active"> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-user"></i> </span> <span class="text">Picked by courier</span> </div>
+                <div class="step active"> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-truck"></i> </span> <span class="text"> On the way </span> </div>
+                <div class="step "> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-home"></i> </span> <span class="text">Delivered</span> </div>
+                {%else%}
+                <div class="step active"> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-spinner"></i> </span> <span class="text">Order Pending</span> </div>
+                <div class="step active"> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-check"></i> </span> <span class="text"> Order Confirmed</span> </div>
+                <div class="step active"> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-user"></i> </span> <span class="text">Picked by courier</span> </div>
+                <div class="step active"> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-truck"></i> </span> <span class="text"> On the way </span> </div>
+                <div class="step active"> <span class="icon"> <i style="padding-top:.2em; padding-right:.5em;" class="fa fa-home"></i> </span> <span class="text">Delivered</span> </div>
+                {%endif%}
+            </div>
+
+        </div>
+    </article><br> 
+</div>
+<br>
+
+
+
+
+<div class="container" style="margin: 0 auto;width: 50%;padding: 50px;background: #f1f1f1;margin-top: 50px;margin-bottom: 50px;">
+
+    <div class="row invoice row-printable">
+        <div class="col-md-12">
+            <!-- col-lg-12 start here -->
+            <div class="panel panel-default plain" id="dash_0">
+                <!-- Start .panel -->
+                <div class="panel-body p30">
+                    <div class="row">
+                        <!-- Start .row -->
+                        <div class="col-lg-6">
+                            <!-- col-lg-6 start here -->
+                            <div class="invoice-logo"><img src="{% static '/images/logo_1.png' %}" alt="Invoice logo" style="max-height: 40px;"></div>
+                        </div>
+                        <!-- col-lg-6 end here -->
+                        <div class="col-lg-6">
+                            <!-- col-lg-6 start here -->
+                            <div class="invoice-from">
+                                <ul class="list-unstyled text-right">
+                                    <li><strong>Invoiced To</strong></li>
+                                    <li>{{order.full_name}}</li>
+                                    <li>{{order.full_address}}</li>
+                                    <li>{{order.city}}, {{order.state}}</li>
+                                    <li>{{order.country}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- col-lg-6 end here -->
+                        <div class="col-lg-12">
+                            <!-- col-lg-12 start here -->
+                            <div class="invoice-details mt25">
+                                <div class="well">
+                                    <ul class="list-unstyled mb0">
+                                        <li><strong>Order</strong> #{{order.order_number}}</li>
+                                        <li><strong>Transaction ID</strong> {{order.payment.payment_id}}</li>
+                                        <li><strong>Order Date:</strong> {{order.created_at}}</li>
+                                        <li><strong>Status:</strong> {{order.payment.status}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="invoice-items">
+                                <div class="table-responsive" style="overflow: hidden; outline: none;" tabindex="0">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th class="per70 text-center">Products</th>
+                                                <th class="per5 text-center">Qty</th>
+                                                <th class="per25 text-center">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                          {% for item in order_detail %}
+                                            <tr>
+                                                <td>{{item.product.product_name}}
+                                                  <p class="text-muted small">
+                                          					{% if item.variations.all %}
+                                          						{% for i in item.variations.all %}
+                                          							{{ i.variation_category | capfirst }} : {{ i.variation_value | capfirst }} <br>
+                                          						{% endfor %}
+                                          					{% endif %}
+                                          				</p>
+                                                </td>
+                                                <td class="text-center">{{item.quantity}}</td>
+                                                <td class="text-center">${{item.product_price}} USD</td>
+                                            </tr>
+                                          {% endfor %}
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th colspan="2" class="text-right">Sub Total:</th>
+                                                <th class="text-center">${{subtotal}} USD</th>
+                                            </tr>
+                                            <tr>
+                                                <th colspan="2" class="text-right">Tax:</th>
+                                                <th class="text-center">${{order.tax}} USD</th>
+                                            </tr>
+
+                                            <tr>
+                                                <th colspan="2" class="text-right">Grand Total:</th>
+                                                <th class="text-center">${{order.order_total}} USD</th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="invoice-footer mt25">
+                                <p class="text-center">Thank you for shopping with us!</p>
+                            </div>
+                        </div>
+                        <!-- col-lg-12 end here -->
+                    </div>
+                    <!-- End .row -->
+                </div>
+            </div>
+            <!-- End .panel -->
+        </div>
+        <!-- col-lg-12 end here -->
+    </div>
+    </div>
+
+
+{% endblock %}

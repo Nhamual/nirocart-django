@@ -6,19 +6,55 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop4" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
+      
+    <!-- google.translate.TranslateElement -->
+      <div style="float:right" id="google_translate_element"></div>
+      <style type='text/css'>
+      iframe.goog-te-banner-frame{ display: none !important;}
+      body {position: static !important; top:0px !important;}
+      .goog-logo-link {display:none !important;} 
+      .goog-te-gadget{color: transparent !important;}
+      .goog-te-gadget-icon{background:none !important;}
+      .goog-te-gadget-simple{background-color:transparent !important;border-left: none !important;border-top: none !important;border-bottom: none !important;border-right: none !important;padding-top: 0px !important;padding-bottom: 0px !important;}
+      .goog-te-gadget-simple .goog-te-menu-value {color: #f35225 !important;}
+      .goog-te-gadget-simple .goog-te-menu-value span {color: #f35225 !important; border-left: 0px !important;}
+      .goog-te-gadget-simple .goog-te-menu-value img {display:none !important;}
+      </style>
+      <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,fr,zh-CN,pt,es', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+        }
+      </script>
+      
+      <script>
+        $(document).ready(function(){
+          $('#google_translate_element').bind('DOMNodeInserted', function(event) {
+            $('.goog-te-menu-value span:first').html('Other Languages');
+            $('.goog-te-menu-frame.skiptranslate').load(function(){
+              setTimeout(function(){
+                $('.goog-te-menu-frame.skiptranslate').contents().find('.goog-te-menu2-item-selected .text').html('Other Languages');
+              }, 100);
+            });
+          });
+        });
+      </script>
+
+
+
       <div class="collapse navbar-collapse" id="navbarTop4">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-                 <a href="#" class="nav-link">   English </a>
+            {% comment %} <li class="nav-item dropdown">
+                 <a href="zh-CN" class="nav-link">English</a>
                 
-            </li>
+            </li> {% endcomment %}
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link"> USD </a>
             </li>
         </ul>
         <ul class="navbar-nav">
-            <li><a href="#" class="nav-link"> <i class="fa fa-envelope"></i> Email </a></li>
-            <li><a href="#" class="nav-link"> <i class="fa fa-phone"></i> Call us </a></li>
+            <li><a href="mailto:clauterthirdparty@gmail.com" class="nav-link"> <i class="fa fa-envelope"></i> Email </a></li>
+            <li><a href="tel:+1234567890" class="nav-link"> <i class="fa fa-phone"></i> Call us </a></li>
         </ul> <!-- list-inline //  -->
       </div> <!-- navbar-collapse .// -->
     </div> <!-- container //  -->
@@ -29,7 +65,7 @@
     <div class="row align-items-center">
         <div class="col-lg-2 col-md-3 col-6">
             <a href="{% url 'home' %}" class="brand-wrap">
-                <img class="logo" src="{% static './images/logo.png' %}">
+                <img class="logo" src="{% static './images/logo_1.png' %}">
             </a> <!-- brand-wrap.// -->
         </div>
         <div class="col-lg col-sm col-md col-6 flex-grow-0">
@@ -78,7 +114,7 @@
                             </div>
                         </div>
                         {%endif%}
-                        <a href="{% url 'cart'%}" class="widget-header pl-3 ml-3">
+                        <a href="{% url 'cart'%}" class="widget-header pl-2 ml-2">
                             <div class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></div>
                             <span class="badge badge-pill badge-danger notify">{{ cart_count }}</span>
                         </a>
@@ -92,3 +128,5 @@
     
     
     </header> <!-- section-header.// -->
+
+   

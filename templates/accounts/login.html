@@ -38,6 +38,9 @@ Already verified? <a href="{% url 'login' %}">Login</a>
           <div class="form-group">
               <button type="submit" class="btn btn-primary btn-block"> Login  </button>
           </div> <!-- form-group// -->
+
+          <div class="g-recaptcha" data-sitekey="6LcOnh0mAAAAAH88V8rjq6PdIrD6DXagqJs2TuVe"></div>
+      <br/>
       </form>
       </div> <!-- card-body.// -->
     </div> <!-- card .// -->
@@ -47,5 +50,10 @@ Already verified? <a href="{% url 'login' %}">Login</a>
 <!-- ============================ COMPONENT LOGIN  END.// ================================= -->
 {% endif %}
 
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  
+
 </section>
 {% endblock %}
+
