@@ -13,6 +13,7 @@ django-session-timeout==0.1.0
 django-tinymce==3.6.1
 idna==3.4
 Pillow==9.5.0
+psycopg2-binary==2.9.6
 python-decouple==3.8
 python-http-client==3.3.7
 requests==2.30.0
