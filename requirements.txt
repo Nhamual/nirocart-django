@@ -3,7 +3,7 @@ awsebcli==3.20.6
 botocore==1.29.99
 cement==2.8.2
 certifi==2023.5.7
-charset-normalizer==3.1.0
+charset-normalizer==2.0.12
 colorama==0.4.3
 crispy-bootstrap5==0.7
 disposable-emails==1.1.0
@@ -26,13 +26,13 @@ python-decouple==3.8
 python-http-client==3.3.7
 pywin32==306
 PyYAML==5.4.1
-requests==2.30.0
+requests==2.26.0
 semantic-version==2.8.5
 sendgrid==6.10.0
-six==1.16.0
+six==1.14.0
 sqlparse==0.4.4
 starkbank-ecdsa==2.2.0
 termcolor==1.1.0
 tzdata==2023.3
-urllib3==2.0.2
+urllib3==1.26.15
 wcwidth==0.1.9
